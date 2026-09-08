@@ -37,22 +37,31 @@ const teamMembers = [
   }
 ];
 
+// DOM refs
 
+// collegamento a nodo HTML
 const sectionCard = document.getElementById('team');
 
+// crezione elemento tag
 const ul = document.createElement('ul');
 
+//collegamento elemento tag in HTML 
 sectionCard.append(ul);
 
-teamMembers.forEach( menmber => {
-    const card = `
+// Lettura valori teamMembers(array) per interazione
+teamMembers.forEach( member => {
+
+  // destrutturazione di member(OBJ)
+  const { name, role, img, email} = member;
+
+  const card = `
     <li>
-       <div class="list-description">
-           <img src="./img/male1.png" alt="Marco Bianchi">
-           <h3 class="name">Marco Bianchi</h3>
-            <h4 class="role">Designer</h4>
-           <p class="email"><a href="mailto:marcobianchi@team.com">marcobianchi@team.com</a></p>
-        </div>
+      <div class="list-description">
+        <img src="./${img}" alt="an image of ${name}">
+        <h3 class="name">${name}</h3>
+        <h4 class="role">${role}</h4>
+        <p class="email"><a href="mailto:${email}">${email}</a></p>
+      </div>
     </li>`;
 
     ul.innerHTML += card;
