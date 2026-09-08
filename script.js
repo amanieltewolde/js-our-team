@@ -36,3 +36,25 @@ const teamMembers = [
     img: "img/female3.png"
   }
 ];
+
+
+const sectionCard = document.getElementById('team');
+
+const ul = document.createElement('ul');
+
+sectionCard.append(ul);
+
+teamMembers.forEach( menmber => {
+    const card = `
+    <li>
+       <div class="list-description">
+           <img src="./img/male1.png" alt="Marco Bianchi">
+           <h3 class="name">Marco Bianchi</h3>
+            <h4 class="role">Designer</h4>
+           <p class="email"><a href="mailto:marcobianchi@team.com">marcobianchi@team.com</a></p>
+        </div>
+    </li>`;
+
+    ul.innerHTML += card;
+});
+

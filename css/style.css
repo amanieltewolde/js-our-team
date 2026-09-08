@@ -1,0 +1,23 @@
+body {
+    background-color: aqua;
+}
+
+/* ordinare informazioni della card */
+div.list-description {
+    
+    display: flex;
+
+    .role {
+        align-self: center;
+    }
+
+    .email {
+        align-self: flex-end;
+    }
+}
+
+/* Ordinare cards */
+ul {
+    display: flex;
+    flex-wrap: wrap;
+}
