@@ -1,23 +1,32 @@
 body {
-    background-color: aqua;
+    background-color: rgb(235, 234, 231);
 }
 
+ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
 /* ordinare informazioni della card */
 div.list-description {
+
+    display: grid;
+    grid-template-columns: 100px 200px;
+    grid-template-rows: 100px;
+    align-items: center;
+    column-gap: 10px;
     
-    display: flex;
-
-    .role {
-        align-self: center;
+    .img-description {
+        height: 100px;
     }
-
-    .email {
-        align-self: flex-end;
+    
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
     }
+    
 }
 
-/* Ordinare cards */
-ul {
-    display: flex;
-    flex-wrap: wrap;
-}
+
+

@@ -25,13 +25,53 @@
             <!-- <ul>
                 <li>
                     <div class="list-description">
-                        <img src="./img/male1.png" alt="Marco Bianchi">
-                        <h3 class="name">Marco Bianchi</h3>
-                        <h4 class="role">Designer</h4>
-                        <p class="email"><a href="mailto:marcobianchi@team.com">marcobianchi@team.com</a></p>
+                        <div class="img-description">
+                            <img src="./img/male1.png" alt="Marco Bianchi">
+                        </div>
+                        <div class="info">
+                            <h3 class="name">Marco Bianchi</h3>
+                            <h4 class="role">Designer</h4>
+                            <p class="email"><a href="mailto:marcobianchi@team.com">marcobianchi@team.com</a></p>
+                        </div>
                     </div>
                 </li>
             </ul> -->
+        </section>
+
+        <section class="form-newmember">
+           <form id="form" class="container">
+
+                <!-- Nome e Cognome new member -->
+                <div>
+                    <label for="fullname">Nome Cognome</label>
+                    <input id="fullname" class="name"  required>
+                </div>
+
+                
+                <!-- Occupazione -->
+                <div>
+                    <label for="role">Ruolo</label>
+                    <input id="role" class="role" required>
+                </div>
+                
+                <!-- Email  -->
+                <div>
+                    <label for="email">Email</label>
+                    <input id="email" class="email" type="email" required>
+                </div>
+
+                <!--Foto profilo  -->
+                <div>
+                    <label for="img">Foto profilo</label>
+                    <input id="img"  required>
+                </div>
+
+                <!-- Tasto input(submit) per invio valori new member  -->
+                <input id="generate" type="submit" value="Aggiungi">
+
+                <!-- Tasto reset modulo form -->
+                <input id="reset" type="reset" value="Annulla">
+            </form>
         </section>
         
     </main>

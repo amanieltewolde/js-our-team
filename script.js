@@ -38,32 +38,78 @@ const teamMembers = [
 ];
 
 // DOM refs
-
 // collegamento a nodo HTML
 const sectionCard = document.getElementById('team');
 
-// crezione elemento tag
-const ul = document.createElement('ul');
+// Form inserimento dati new member
+const formEl = document.getElementById('form')
+const newNameInputEl = document.getElementById('fullname');
+const newRoleInputEl = document.getElementById('role');
+const newEmailInputEl = document.getElementById('email');
+const newImageInputEl = document.getElementById('img');
+
+//Reset della form
+const resetData = document.getElementById('reset');
+
+
+
+// creazione elemento tag ul 
+const ulTeam = document.createElement('ul');
 
 //collegamento elemento tag in HTML 
-sectionCard.append(ul);
+sectionCard.append(ulTeam);
 
 // Lettura valori teamMembers(array) per interazione
 teamMembers.forEach( member => {
 
-  // destrutturazione di member(OBJ)
+//   // destrutturazione di member(OBJ)
   const { name, role, img, email} = member;
 
   const card = `
     <li>
       <div class="list-description">
-        <img src="./${img}" alt="an image of ${name}">
-        <h3 class="name">${name}</h3>
-        <h4 class="role">${role}</h4>
-        <p class="email"><a href="mailto:${email}">${email}</a></p>
-      </div>
+          <div class="img-description">
+         <img src="./${img}" alt="an image of ${name}">
+          </div>
+          <div class="info">
+         <h3 class="name">${name}</h3>
+         <h4 class="role">${role}</h4>
+         <p class="email"><a href="mailto:${email}">${email}</a></p>
+          </div>
+       </div>
     </li>`;
 
-    ul.innerHTML += card;
+    ulTeam.innerHTML += card;
 });
+
+formEl.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+
+    const name = newNameInputEl.value.trim();
+    const role = newRoleInputEl.value.trim();
+    const email = newEmailInputEl.value.trim();
+    const img = newImageInputEl.value.trim();
+
+
+     const card = `
+    <li>
+      <div class="list-description">
+          <div class="img-description">
+         <img src="./${img}" alt="an image of ${name}">
+          </div>
+          <div class="info">
+         <h3 class="name">${name}</h3>
+         <h4 class="role">${role}</h4>
+         <p class="email"><a href="mailto:${email}">${email}</a></p>
+          </div>
+       </div>
+    </li>`;
+
+    ulTeam.innerHTML += card;
+
+})
+
+resetData.addEventListener('click', function() {
+    formDisplay.forEach( element => element.classList.add('display-form'));
+})
 
