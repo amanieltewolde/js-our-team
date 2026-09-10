@@ -1,4 +1,4 @@
-const teamMembers = [
+let teamMembers = [
   {
     name: "Marco Bianchi",
     role: "Designer",
@@ -50,6 +50,15 @@ const newImageInputEl = document.getElementById('img');
 
 //Reset della form
 const resetData = document.getElementById('reset');
+
+// creazione variabile del dato in localstorage da string a dato originale
+const localTeamData = JSON.parse(localStorage.getItem('ama-team'));
+
+if(localTeamData !== null) {
+  teamMembers = localTeamData;
+}
+
+
 
 
 
@@ -112,10 +121,22 @@ formEl.addEventListener('submit', function (ev) {
 
     addCard(name,role,img, email);
 
-    formEl.reset();
-    newNameInputEl.focus();
+    // Reset campi form ****DA RIVEDERE(Reset non funzionante*****
+    // formEl.reset();
+    // newNameInputEl.focus();
+
+    // Aggiornare nuovi dati
+    const newMember = {
+      name,
+      role,
+      img,
+      email,
+    }
+
+    teamMembers.push(newMember);
 
 
+    localStorage.setItem('ama-team', JSON.stringify(teamMembers));
 
 })
 
