@@ -65,6 +65,72 @@ teamMembers.forEach( member => {
 //   // destrutturazione di member(OBJ)
   const { name, role, img, email} = member;
 
+  // const card = `
+  //   <li>
+  //     <div class="list-description">
+  //         <div class="img-description">
+  //        <img src="./${img}" alt="an image of ${name}">
+  //         </div>
+  //         <div class="info">
+  //        <h3 class="name">${name}</h3>
+  //        <h4 class="role">${role}</h4>
+  //        <p class="email"><a href="mailto:${email}">${email}</a></p>
+  //         </div>
+  //      </div>
+  //   </li>`;
+  
+  // ulTeam.innerHTML += card;
+  
+  addCard(name,role,img, email);
+});
+
+// gestione evento invio della form e aggiunta nuova card
+formEl.addEventListener('submit', function (ev) {
+  ev.preventDefault();
+
+    const name = newNameInputEl.value.trim();
+    const role = newRoleInputEl.value.trim();
+    const email = newEmailInputEl.value.trim();
+    const img = newImageInputEl.value.trim();
+
+
+    //  const card = `
+    // <li>
+    //   <div class="list-description">
+    //       <div class="img-description">
+    //      <img src="./${img}" alt="an image of ${name}">
+    //       </div>
+    //       <div class="info">
+    //      <h3 class="name">${name}</h3>
+    //      <h4 class="role">${role}</h4>
+    //      <p class="email"><a href="mailto:${email}">${email}</a></p>
+    //       </div>
+    //    </div>
+    // </li>`;
+
+    // ulTeam.innerHTML += card;
+
+    addCard(name,role,img, email);
+
+    formEl.reset();
+    newNameInputEl.focus();
+
+
+
+})
+
+// resetData.addEventListener('click', function() {
+//     formDisplay.forEach( element => element.classList.add('display-form'));
+// })
+
+/**
+ * Gen a card for member
+ * @param {String} name Card name member
+ * @param {String} role Card role  member
+ * @param {String} img Card profile picture member
+ * @param {String} email Card email member
+  * */
+function addCard(name, role, img, email) {
   const card = `
     <li>
       <div class="list-description">
@@ -80,36 +146,4 @@ teamMembers.forEach( member => {
     </li>`;
 
     ulTeam.innerHTML += card;
-});
-
-formEl.addEventListener('submit', function (ev) {
-    ev.preventDefault();
-
-    const name = newNameInputEl.value.trim();
-    const role = newRoleInputEl.value.trim();
-    const email = newEmailInputEl.value.trim();
-    const img = newImageInputEl.value.trim();
-
-
-     const card = `
-    <li>
-      <div class="list-description">
-          <div class="img-description">
-         <img src="./${img}" alt="an image of ${name}">
-          </div>
-          <div class="info">
-         <h3 class="name">${name}</h3>
-         <h4 class="role">${role}</h4>
-         <p class="email"><a href="mailto:${email}">${email}</a></p>
-          </div>
-       </div>
-    </li>`;
-
-    ulTeam.innerHTML += card;
-
-})
-
-resetData.addEventListener('click', function() {
-    formDisplay.forEach( element => element.classList.add('display-form'));
-})
-
+}
